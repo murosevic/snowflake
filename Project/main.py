@@ -1,10 +1,7 @@
 # Imports
 from __future__ import annotations
-
 import openai
-import time
-
-from view import view
+from tkinter import *
 
 # API Key
 openai.api_key = "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"
@@ -51,7 +48,7 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
     if bot_response:
         update_list(bot_response, pl)
-        pos: int = bot_response.find('\nAI: ')
+        pos: int = bot_response.find('\nBot: ')
         bot_response = bot_response[pos + 5:]
     else:
         bot_response = 'Something went wrong...'
@@ -62,7 +59,7 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 def main():
     prompt_list: list[str] = ['You are a helpful bot called snowflake',
                               '\nHuman: Hi snowflake!',
-                              '\nAI: Hi, how can I assist you today?']
+                              '\nBot: Hi, how can I assist you today?']
 
     while True:
         user_input: str = input('You: ')
@@ -70,5 +67,19 @@ def main():
         print(f'Bot: {response}')
 
 
+# class View:
+#     root = Tk()
+#     root.geometry("700x500")
+#     root.title("Snowflake")
+#
+#     frame = Frame(root)
+#     frame.pack()
+#
+#     message = Text(frame, height=1, width=10, font="Helvetica")
+#     message.pack(anchor=S)
+#
+#     root.mainloop()
+
 if __name__ == '__main__':
     main()
+    # View()
