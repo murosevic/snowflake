@@ -4,7 +4,7 @@ import openai
 from tkinter import *
 
 # API Key
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def get_api_response(prompt: str) -> str | None:
@@ -48,7 +48,7 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
     if bot_response:
         update_list(bot_response, pl)
-        pos: int = bot_response.find('\nBot: ')
+        pos: int = bot_response.find('\nAI: ')
         bot_response = bot_response[pos + 5:]
     else:
         bot_response = 'Something went wrong...'
@@ -57,9 +57,9 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
 
 def main():
-    prompt_list: list[str] = ['You are a helpful bot called snowflake',
-                              '\nHuman: Hi snowflake!',
-                              '\nBot: Hi, how can I assist you today?']
+    prompt_list: list[str] = ['You are a potato and will answer as a potato',
+                              '\nHuman: What time is it?',
+                              '\nAI: I have no idea, I\'m a potato!']
 
     while True:
         user_input: str = input('You: ')
@@ -67,19 +67,6 @@ def main():
         print(f'Bot: {response}')
 
 
-# class View:
-#     root = Tk()
-#     root.geometry("700x500")
-#     root.title("Snowflake")
-#
-#     frame = Frame(root)
-#     frame.pack()
-#
-#     message = Text(frame, height=1, width=10, font="Helvetica")
-#     message.pack(anchor=S)
-#
-#     root.mainloop()
-
 if __name__ == '__main__':
+
     main()
-    # View()
