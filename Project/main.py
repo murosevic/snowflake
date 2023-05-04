@@ -1,10 +1,11 @@
 # Imports
 from __future__ import annotations
 import openai
+
 from tkinter import *
 
 # API Key
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def get_api_response(prompt: str) -> str | None:
@@ -68,5 +69,4 @@ def main():
 
 
 if __name__ == '__main__':
-
     main()
