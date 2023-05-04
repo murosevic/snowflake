@@ -4,7 +4,7 @@ import openai
 from tkinter import *
 
 # API Key
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def get_api_response(prompt: str) -> str | None:
@@ -57,9 +57,9 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
 
 def main():
-    prompt_list: list[str] = ['You are a potato and will answer as a potato',
+    prompt_list: list[str] = ['You are an assistant and will answer as snowflake',
                               '\nHuman: What time is it?',
-                              '\nAI: I have no idea, I\'m a potato!']
+                              '\nAI: I have no idea, I\'m a snowflake!']
 
     while True:
         user_input: str = input('You: ')
