@@ -64,6 +64,11 @@ def main():
 
     while True:
         user_input: str = input('You: ')
+
+        if user_input.__contains__("stop") | user_input.__contains__("end") | user_input.__contains__("Stop") | user_input.__contains__("End"):
+            print("Snowflake: Okay bye!")
+            exit()
+
         response: str = get_bot_response(user_input, prompt_list)
         print(f'Bot: {response}')
 
