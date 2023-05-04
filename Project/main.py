@@ -1,11 +1,11 @@
 # Imports
 from __future__ import annotations
+import os
 import openai
-
-from tkinter import *
+import creds
 
 # API Key
-openai.api_key = "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"
+openai.api_key = creds.apikey
 
 
 def get_api_response(prompt: str) -> str | None:
@@ -69,4 +69,6 @@ def main():
 
 
 if __name__ == '__main__':
+    os.open("view.py", os.O_RDONLY)
     main()
+
