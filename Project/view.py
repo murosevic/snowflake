@@ -1,17 +1,26 @@
 import sys
 from PyQt6.QtWidgets import *
+from PyQt6.QtGui import QPalette, QColor
 
 
 # Subclass QMainWindow to customize your application's main window
 class MainWindow(QMainWindow):
     def __init__(self):
-        super().__init__()
+        super(MainWindow, self).__init__()
 
         self.setWindowTitle("My App")
-        text = QTextBrowser("Enter text")
+        self.setFixedSize(900, 500)
 
-        # Set the central widget of the Window.s
-        self.setCentralWidget(text)
+        layout = QVBoxLayout()
+
+        line = QLineEdit()
+        line.resize(1, 1)
+
+        layout.addWidget(line)
+
+        widget = QWidget()
+        widget.setLayout(layout)
+        self.setCentralWidget(widget)
 
 
 app = QApplication(sys.argv)
