@@ -1,11 +1,22 @@
-from tkinter import *
-from tkinter.ttk import *
+import sys
+from PyQt6.QtWidgets import *
 
-root = Tk()
 
-root.geometry("700x400")
+# Subclass QMainWindow to customize your application's main window
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
 
-txtInput = Text(root, borderwidth=0, highlightthickness=0, wrap="word", width=40, height=4)
-txtInput.pack(side=BOTTOM)
+        self.setWindowTitle("My App")
+        text = QTextBrowser("Enter text")
 
-root.mainloop()
+        # Set the central widget of the Window.s
+        self.setCentralWidget(text)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec()

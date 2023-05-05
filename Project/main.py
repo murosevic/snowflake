@@ -1,8 +1,9 @@
 # Imports
 from __future__ import annotations
-import os
 import openai
 import creds
+import view
+from multiprocessing import *
 
 # API Key
 openai.api_key = creds.apikey
@@ -65,8 +66,8 @@ def main():
     while True:
         user_input: str = input('You: ')
 
-        if user_input.__contains__("stop") | user_input.__contains__("end") | user_input.__contains__("Stop") | user_input.__contains__("End"):
-            print("Snowflake: Okay bye!")
+        if user_input == "Stop program":
+            print("Snowflake: Sure")
             exit()
 
         response: str = get_bot_response(user_input, prompt_list)
@@ -74,6 +75,6 @@ def main():
 
 
 if __name__ == '__main__':
-    os.open("view.py", os.O_RDONLY)
+    view
     main()
 
