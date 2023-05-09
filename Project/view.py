@@ -1,31 +1,17 @@
-import sys
-from PyQt6.QtWidgets import *
-from PyQt6.QtGui import QPalette, QColor
+from flask import Flask
+from flask import render_template
+from flask import request
+import main
+
+app = Flask(__name__)
 
 
-# Subclass QMainWindow to customize your application's main window
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super(MainWindow, self).__init__()
+@app.route("/")
+@app.route("/index", methods=['GET', 'POST'])
+def home():
 
-        self.setWindowTitle("My App")
-        self.setFixedSize(900, 500)
-
-        layout = QVBoxLayout()
-
-        line = QLineEdit()
-        line.resize(1, 1)
-
-        layout.addWidget(line)
-
-        widget = QWidget()
-        widget.setLayout(layout)
-        self.setCentralWidget(widget)
+    return render_template('index.html', title="Snowflake")
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port='499')
