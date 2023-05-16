@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/index", methods=['GET', 'POST'])
 def home():
-    return render_template('index.html', title="Snoflake")    # Renders the HTML template
+    return render_template('index.html', title="Snowflake")    # Renders the HTML template
 
 
 if __name__ == '__main__':
