@@ -58,23 +58,15 @@ def get_bot_response(message: str, pl: list[str]) -> str:
     return bot_response
 
 
-def main():
+def main(user_input):
     prompt_list: list[str] = ['You are an assistant and will answer as snowflake',
                               '\nHuman: What time is it?',
                               '\nAI: I have no idea, I\'m a snowflake!']
 
     while True:
-        user_input: str = input('You: ')
-
         if user_input == "Stop program":
             print("Snowflake: Sure")
             exit()
 
-        response: str = get_bot_response(user_input, prompt_list)
+        response = get_bot_response(user_input, prompt_list)
         print(f'Bot: {response}')
-
-
-if __name__ == '__main__':
-    #view
-    main()
-
